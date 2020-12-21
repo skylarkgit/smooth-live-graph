@@ -19,13 +19,17 @@ function newFrame() {
 }
 requestAnimationFrame(newFrame);
 
+let phase = 0;
+
 function update() {
   const freq = 0.001;
   const amp = 0.5;
   const noise = 0;
+  const speed = 0.01;
+  phase+=speed;
 
   for (let i = 0; i < line.numPoints; i++) {
-    const ySin = Math.sin(Math.PI * i * freq * Math.PI * 2);
+    const ySin = Math.sin(Math.PI * i * freq * Math.PI * 2 + phase);
     const yNoise = Math.random() - 0.5;
     line.setY(i, ySin * amp + yNoise * noise);
   }
