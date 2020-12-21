@@ -5,12 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo - Smooth Live Graph</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
-    <canvas id="livegraph"></canvas>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/danchitnis/webgl-plot@master/dist/webglplot.umd.min.js"></script>
+    <div>
+        <p>Example 1: Sin wave with increasing phase</p>
+        <canvas id="livegraph"></canvas>
+    </div>
+    <div>
+        <p>Example 2: Random number</p>
+        <canvas id="livegraphrandom"></canvas>
+    </div>
+
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/gh/danchitnis/webgl-plot@master/dist/webglplot.umd.min.js"></script>
     <script type="text/javascript" src="./index.js"></script>
+    <script type="text/javascript" src="./circulararray.js"></script>
+    <script type="text/javascript" src="./indexrandom.js"></script>
 </body>
 
 </html>
