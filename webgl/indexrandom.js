@@ -45,5 +45,5 @@
 
   setInterval(() => {
     dataHandler.push(getRandom())
-  }, 30);
+  }, 10);
 })();

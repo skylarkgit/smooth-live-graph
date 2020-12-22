@@ -1,0 +1,52 @@
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.graph .axis {
+    stroke-width: 1;
+}
+
+.graph .axis .tick line {
+    stroke: black;
+}
+
+.graph .axis .tick text {
+    fill: black;
+    font-size: 0.7em;
+}
+
+.graph .axis .domain {
+    fill: none;
+    stroke: black;
+}
+
+.graph .group {
+    fill: none;
+    stroke: black;
+    stroke-width: 1.5;
+}
+
+
+#sinegraph .axis {
+    stroke-width: 1;
+}
+
+#sinegraph .axis .tick line {
+    stroke: black;
+}
+
+#sinegraph .axis .tick text {
+    fill: black;
+    font-size: 0.7em;
+}
+
+#sinegraph .axis .domain {
+    fill: none;
+    stroke: black;
+}
+
+#sinegraph .group {
+    fill: none;
+    stroke: black;
+    stroke-width: 1.5;
+}

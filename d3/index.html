@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Smooth Live Graph (D3)</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div>
+        <p>Example 1: Randomly generated graph</p>
+        <div class="graph"></div>
+    </div>
+
+    <div>
+        <p>Example 2: Sin wave with increasing phase</p>
+        <div id="sinegraph"></div>
+    </div>
+
+    <div>
+        <p>Example 2: Random number</p>
+        <canvas id="livegraphrandom"></canvas>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.3.1/d3.js"></script>
+    <script type="text/javascript" src="../util/circulararray.js"></script>
+    <script type="text/javascript" src="./index.js"></script>
+    <script type="text/javascript" src="./sinegraph.js"></script>
+
+</body>
+
+</html>
