@@ -6,6 +6,8 @@
   var width = window.innerWidth - 100;
   var height = 250;
 
+  var startTime = Date.now();
+
   var marker = {
     value: 0,
     color: "orange",
@@ -52,15 +54,12 @@
     .attr("class", "output group")
     .style("stroke", marker.color);
 
-  let phase = 0;
   function tick() {
     now = new Date();
     const freq = 0.001;
-    const amp = 100;
-    const speed = 0.01;
-    phase += speed;
+    const amp = 10;
 
-    marker.data.push(20 + amp * Math.sin(phase));
+    marker.data.push(20 + amp * Math.sin(freq * (Date.now() - startTime)));
     marker.path.attr("d", line);
 
     // Shift domain

@@ -50,3 +50,27 @@ body {
     stroke: black;
     stroke-width: 1.5;
 }
+
+#randomgraph .axis {
+    stroke-width: 1;
+}
+
+#randomgraph .axis .tick line {
+    stroke: black;
+}
+
+#randomgraph .axis .tick text {
+    fill: black;
+    font-size: 0.7em;
+}
+
+#randomgraph .axis .domain {
+    fill: none;
+    stroke: black;
+}
+
+#randomgraph .group {
+    fill: none;
+    stroke: black;
+    stroke-width: 1.5;
+}
