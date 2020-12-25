@@ -8,12 +8,7 @@ navigator.mediaDevices.getUserMedia({ audio: true }).then(
 );
 
 function soundGraph(stream) {
-  audioContext = new AudioContext();
-  const mediaStreamSource = audioContext.createMediaStreamSource(stream);
-  analyzer = audioContext.createAnalyser();
-  analyzer.smoothingTimeConstant = 0;
-  mediaStreamSource.connect(analyzer); // script processor is used as an intermediary between analyzer
-  analyzer.fftSize = 32;
+  const soundProps = new SoundProps(stream).init();
 
   const canvas = document.getElementById("liveamp");
   const devicePixelRatio = window.devicePixelRatio || 1;
@@ -54,24 +49,8 @@ function soundGraph(stream) {
   }
 
   setInterval(() => {
-    const dataArray = new Uint8Array(analyzer.frequencyBinCount);
-    analyzer.getByteFrequencyData(dataArray);
-    const amp = getVolume(dataArray, analyzer.frequencyBinCount);
-    dataHandler.push(amp / 500);
-    console.log(amp)
-  }, 20);
-
-  // https://stackoverflow.com/questions/62083981/analysernode-getfloatfrequencydata-returns-negative-values
-  function getVolume(dataArray, binCount) {
-    let bufferLength = binCount;
-    let totalAntilogAmplitude = 0;
-    for (let i = 0; i < bufferLength; i++) {
-      let thisAmp = dataArray[i]; // amplitude of current bin
-      let thisAmpAntilog = Math.pow(10, thisAmp / 10); // antilog amplitude for adding
-      totalAntilogAmplitude = totalAntilogAmplitude + thisAmpAntilog;
-    }
-    console.log(totalAntilogAmplitude, binCount)
-    let amplitude = 10 * Math.log10(totalAntilogAmplitude);
-    return amplitude;
-  }
+    const amp = soundProps.getVolume();
+    dataHandler.push((amp - 50)/ 150);
+    console.log((amp - 50)/ 150);
+  }, 100);
 }
