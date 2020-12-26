@@ -51,6 +51,5 @@ function soundGraph(stream) {
   setInterval(() => {
     const amp = soundProps.getVolume();
     dataHandler.push((amp - 50)/ 150);
-    console.log((amp - 50)/ 150);
   }, 100);
 }
