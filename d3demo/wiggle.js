@@ -41,13 +41,17 @@
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
-  let prevLine = line(d3data);
   setInterval(() => {
+
+    // Updating the data
     d3data.push(randomIntFromInterval(0, height));
     d3data.shift();
-    const newLine = line(d3data);
-    //   path.attr("d", line(prevLine)).transition().attr("d", line(newLine));
-    path.transition().duration(duration).ease(d3.easeLinear).attr("d", line);
-    prevLine = newLine;
+
+    // Redrawing the path
+    path
+      .transition()
+      .duration(duration)
+      .ease(d3.easeLinear)
+      .attr("d", line);
   }, duration);
 })();

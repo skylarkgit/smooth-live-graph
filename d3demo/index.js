@@ -16,7 +16,10 @@
     return 0;
   });
   const pathGroup = svg.append("g");
-  const path = pathGroup.append("path").style("stroke", "blue").data([d3data]);
+  const path = pathGroup
+    .append("path")
+    .style("stroke", "blue")
+    .data([d3data]);
 
   const xScale = d3.scaleLinear().domain([0, range]).range([0, width]);
   const yScale = d3.scaleLinear().domain([0, height]).range([height, 0]);
@@ -39,35 +42,16 @@
 
   let prevLine = line(d3data);
 
-  // pathGroup
-  //   .transition()
-  //   .duration(duration)
-  //   .ease(d3.easeLinear)
-  //   .attr("transform", "translate(" + xScale(-1) + ")");
-
-  // setInterval(() => {
-  //   d3data.push(randomIntFromInterval(0, height));
-  //   d3data.shift();
-  //   const newLine = line(d3data);
-  //   //   path.attr("d", line(prevLine)).transition().attr("d", line(newLine));
-  //   //   path.transition().duration(duration).ease(d3.easeLinear).attr("d", line);
-  //   path.attr("d", line);
-  //   path
-  //     .attr("transform", null)
-  //     .transition()
-  //     .duration(duration)
-  //     .ease(d3.easeLinear)
-  //     .attr("transform", "translate(" + xScale(-1) + ")");
-  //   prevLine = newLine;
-  //   d3data.shift();
-  // }, duration);
-
   function reticker() {
+    
+    // Updating the data
     d3data.push(randomIntFromInterval(0, height));
     const newLine = line(d3data);
-    //   path.attr("d", line(prevLine)).transition().attr("d", line(newLine));
-    //   path.transition().duration(duration).ease(d3.easeLinear).attr("d", line);
+
+    // Redrawing the line
     path.attr("d", line);
+
+    // Moving the graph
     path
       .attr("transform", null)
       .transition()
